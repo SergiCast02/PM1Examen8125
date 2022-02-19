@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactsActivity">
+
+    <Button
+        android:id="@+id/btneliminarContacto"
+        android:layout_width="155dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/btn_eliminar"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_contactos" />
+
+    <Button
+        android:id="@+id/btnactualizarContacto"
+        android:layout_width="155dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/btn_actualizar"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_contactos" />
+
+    <Button
+        android:id="@+id/btnverImagen"
+        android:layout_width="155dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/btn_verimagen"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_contactos" />
+
+    <Button
+        android:id="@+id/btncompartirContacto"
+        android:layout_width="155dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/btn_compartir"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_contactos" />
+
+    <Button
+        android:id="@+id/btn_atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_atras"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        style="@android:style/Widget.Material.SearchView"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_contactos"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">PM1Examen8125</string>
+
+    <!--MainActivity-->
+    <string name="dec_img">¿Cómo desea obtener la imagen?</string>
+
+    <string-array name="decs_img">
+        <item>Tomar Foto</item>
+        <item>Seleccionar Imagen</item>
+    </string-array>
+
+    <string-array name="paises">
+        <item>Honduras (+504)</item>
+        <item>Costa Rica (+506)</item>
+        <item>Guatemala (+502)</item>
+        <item>El Salvador (+503)</item>
+    </string-array>
+
+    <string name="lbl_pais">Pais</string>
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_telefono">Teléfono</string>
+    <string name="lbl_nota">Nota:</string>
+
+    <string name="btn_salvar">Salvar Contacto</string>
+    <string name="btn_vercontactos">Contactos Salvados</string>
+
+    <!--ContactsActivity-->
+    <string name="btn_atras">Atrás ...</string>
+    <string name="btn_compartir">Compartir Contacto</string>
+    <string name="btn_verimagen">Ver Imagen</string>
+    <string name="btn_eliminar">Eliminar Contacto</string>
+    <string name="btn_actualizar">Actualizar Contacto</string>
+
+    <!--ViewsActivity-->
+    <string name="hint_pais">País</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_nota">Nota:</string>
+    <string name="btn_actualizarinfo">ACTUALIZAR</string>
+
+    <!--ImagenActivity-->
+    <string name="btn_regresar">Regresar</string>
+</resources>
