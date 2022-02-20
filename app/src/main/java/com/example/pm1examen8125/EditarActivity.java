@@ -83,6 +83,7 @@ public class EditarActivity extends AppCompatActivity {
 
                 if(nombre.isEmpty()){alerta("Ingrese un Nombre para continuar",0);}
                 else if(telefono.isEmpty()){alerta("Ingrese un número telefónico para continuar",0);}
+                else if(telefono.length()<8){alerta("El número de teléfono debe ser de 8 dígitos",0);}
                 else if(nota.isEmpty()){alerta("Ingrese una Nota para continuar",0);}
                 else {
                     boolean isCorrecto = dbContactos.editarContacto(id,pais, nombre, telefono, nota);

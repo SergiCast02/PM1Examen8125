@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="phone"
+            android:inputType="number"
+            android:maxLength="8"
             android:labelFor="@+id/viewTelefono"
             android:textSize="18sp" />
 

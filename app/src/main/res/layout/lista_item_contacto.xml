@@ -32,9 +32,9 @@
                 android:id="@+id/viewNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:layout_gravity="left"
                 android:layout_weight="1"
+                android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -49,27 +49,27 @@
                     android:id="@+id/viewPais"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
                     android:layout_gravity="left"
                     android:paddingRight="5dp"
+                    android:text="TextView"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/viewTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
                     android:layout_gravity="left"
                     android:paddingRight="5dp"
+                    android:text="TextView"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/viewNota"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="TextView"
                     android:layout_gravity="left"
                     android:paddingLeft="8dp"
+                    android:text="TextView"
                     android:textSize="16sp" />
             </LinearLayout>
 

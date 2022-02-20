@@ -52,56 +52,65 @@ public class ContactsActivity extends AppCompatActivity {
                 DbContactos dbContactos = new DbContactos(getApplicationContext());
                 ListaContactosAdapter lca = new ListaContactosAdapter();
 
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                String pais = dbContactos.verContactos(lca.getId()).getPais();
+                if(lca.getId()==0){
+                    alerta("Seleccione un contacto",0);
+                }else{
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    String pais = dbContactos.verContactos(lca.getId()).getPais();
 
-                boolean ciclo = true;
-                String lada="";
-                int c=1;
-                while(ciclo==true){
-                    lada = lada + String.valueOf(pais.charAt(pais.length()-(c+1)));
-                    if(String.valueOf(pais.charAt(pais.length()-(c+2))).equals("(")){
-                        ciclo = false;
+                    boolean ciclo = true;
+                    String lada="";
+                    int c=1;
+                    while(ciclo==true){
+                        lada = lada + String.valueOf(pais.charAt(pais.length()-(c+1)));
+                        if(String.valueOf(pais.charAt(pais.length()-(c+2))).equals("(")){
+                            ciclo = false;
+                        }
+                        c++;
                     }
-                    c++;
-                }
-                StringBuilder strb = new StringBuilder(lada);
-                lada = strb.reverse().toString();
-                System.out.println(lada);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, lada+" "+dbContactos.verContactos(lca.getId()).getTelefono());
-                sendIntent.setType("text/plain");
+                    StringBuilder strb = new StringBuilder(lada);
+                    lada = strb.reverse().toString();
+                    System.out.println(lada);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, dbContactos.verContactos(lca.getId()).getNombre()+"\n"+lada+" "+dbContactos.verContactos(lca.getId()).getTelefono());
+                    sendIntent.setType("text/plain");
 
-                Intent shareIntent = Intent.createChooser(sendIntent, null);
-                startActivity(shareIntent);
+                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+                    startActivity(shareIntent);
+                }
 
             }
         });
+        //Se me fue el pajaro y le puse btn_eliminarimagen, debia llamarse btn_eliminarcontacto
         btn_eliminarimagen = findViewById(R.id.btneliminarContacto);
         btn_eliminarimagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ContactsActivity.this);
-                builder.setMessage("¿Desea eliminar este contacto?")
-                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                ListaContactosAdapter lca = new ListaContactosAdapter();
-                                DbContactos dbContactos = new DbContactos(getApplicationContext());
+                ListaContactosAdapter lca = new ListaContactosAdapter();
+                DbContactos dbContactos = new DbContactos(getApplicationContext());
 
-                                if(dbContactos.eliminarContacto(lca.getId())){
-                                    alerta("Eliminado con Éxito",0);
-                                    finish();
-                                    startActivity(getIntent());
+                if(lca.getId()==0){
+                    alerta("Seleccione un contacto",0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ContactsActivity.this);
+                    builder.setMessage("¿Desea eliminar este contacto?")
+                            .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    if(dbContactos.eliminarContacto(lca.getId())){
+                                        alerta("Eliminado con Éxito",0);
+                                        finish();
+                                        startActivity(getIntent());
+                                    }
                                 }
-                            }
-                        })
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
+                            })
+                            .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
 
-                            }
-                        }).show();
+                                }
+                            }).show();
+                }
             }
         });
 
@@ -112,10 +121,15 @@ public class ContactsActivity extends AppCompatActivity {
                 ListaContactosAdapter lca = new ListaContactosAdapter();
                 Context context = view.getContext();
 
-                Intent i = new Intent(context, ImagenActivity.class);
-                i.putExtra("id", lca.getId());
-                //System.out.println(lca.getId());
-                context.startActivity(i);
+                if(lca.getId()==0){
+                    alerta("Seleccione un contacto",0);
+                }else{
+                    Intent i = new Intent(context, ImagenActivity.class);
+                    i.putExtra("id", lca.getId());
+                    //System.out.println(lca.getId());
+                    context.startActivity(i);
+                }
+
             }
         });
 
@@ -125,11 +139,16 @@ public class ContactsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ListaContactosAdapter lca = new ListaContactosAdapter();
                 Context context = view.getContext();
-                //Intent i = new Intent(context, ViewsActivity.class);
-                Intent i = new Intent(context, EditarActivity.class);
-                i.putExtra("id", lca.getId());
-                System.out.println(lca.getId());
-                context.startActivity(i);
+
+                if(lca.getId()==0){
+                    alerta("Seleccione un contacto",0);
+                }else{
+                    //Intent i = new Intent(context, ViewsActivity.class);
+                    Intent i = new Intent(context, EditarActivity.class);
+                    i.putExtra("id", lca.getId());
+                    System.out.println(lca.getId());
+                    context.startActivity(i);
+                }
             }
         });
 
